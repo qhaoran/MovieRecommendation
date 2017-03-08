@@ -6,7 +6,7 @@ Recommendation system is extremely pervasive in almost everywhere. This project 
 ## Content and use of source data files:
 
 Ratings Data File Structure (ratings.csv)
------------------------------------------
+
 
 All ratings are contained in the file `ratings.csv`. Each line of this file after the header row represents one rating of one movie by one user, and has the following format:
 
@@ -19,7 +19,7 @@ Ratings are made on a 5-star scale, with half-star increments (0.5 stars - 5.0 s
 Timestamps represent seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970.
 
 Tags Data File Structure (tags.csv)
------------------------------------
+
 
 All tags are contained in the file `tags.csv`. Each line of this file after the header row represents one tag applied to one movie by one user, and has the following format:
 
@@ -32,7 +32,7 @@ Tags are user-generated metadata about movies. Each tag is typically a single wo
 Timestamps represent seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970.
 
 Movies Data File Structure (movies.csv)
----------------------------------------
+
 
 Movie information is contained in the file `movies.csv`. Each line of this file after the header row represents one movie, and has the following format:
 
@@ -63,7 +63,7 @@ Genres are a pipe-separated list, and are selected from the following:
 * (no genres listed)
 
 Links Data File Structure (links.csv)
----------------------------------------
+
 
 Identifiers that can be used to link to other sources of movie data are contained in the file `links.csv`. Each line of this file after the header row represents one movie, and has the following format:
 
