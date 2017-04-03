@@ -19,7 +19,7 @@ def generateTransMatrix(iterator):
 
 transMatrix = sc.textFile("./%s" % ratingFile).map(lambda line: line.split(",")).filter(
     lambda line: not line[0].isalpha()).map(
-    lambda line: (int(line[1]), int(line[0]))).groupByKey().mapPartitions(generateTransMatrix)  # .sortByKey()
+    lambda line: (int(line[1]), int(line[0]))).groupByKey().mapPartitions(generateTransMatrix)
 
 b = 30
 r = 20
@@ -50,8 +50,6 @@ def minHash(iterator):
 signatureVector = transMatrix.mapPartitions(minHash)
 signature = signatureVector.collectAsMap()
 
-
-# transitionMatrix = transMatrix.collectAsMap()
 
 def getCandidatePairs(iterator):
     signatureMatrix = list(iterator)
@@ -90,22 +88,6 @@ def getSimilarMovieId(iterator):
             if s1[index] == s2[index]:
                 numerator += 1
         jaccard = float(numerator) / totalHashfunc
-
-        # # using transition matrix
-        # t1 = transitionMatrix[pair[0]]
-        # t2 = transitionMatrix[pair[1]]
-        # commonUserSum = 0.0
-        # totalRatingUserSum = 0.0
-        # for i in range(0, 671):
-        #     if t1[i] == 0 and t2[i] == 0:
-        #         continue
-        #     if t1[i] == 1.0 and t2[i] == 1.0:
-        #         commonUserSum += 1
-        #         totalRatingUserSum += 1
-        #     else:
-        #         totalRatingUserSum += 1
-        # jaccard = float(commonUserSum) / totalRatingUserSum
-
         if (jaccard >= 0.5):
             yield ((pair[0], pair[1]), jaccard)
 
